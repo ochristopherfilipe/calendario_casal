@@ -1,0 +1,608 @@
+/* Estilos Gerais */
+body {
+    font-family: 'VT323', monospace;
+    background-color: #EFF2D8;
+    color: #220126;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    cursor: url('../assets/images/pointert.png'), auto; /* Cursor personalizado */
+}
+
+/* Imagem de fundo */
+.background {
+    background-image: url('../assets/images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Garante que os itens sejam distribuídos */
+    height: 10vh;
+    background-color: rgba(242, 169, 153, 0.9);
+    padding: 0 20px;
+    border-bottom: 4px solid #220126;
+    position: relative;
+}
+
+/* Logo (Coração Pixelado) */
+.logo {
+    text-align: center;
+}
+
+.logo-image {
+    width: 380px; /* Mantém o tamanho aumentado da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    position: absolute; /* Posicionamento absoluto */
+    left: 50%; /* Posiciona no centro horizontal */
+    top: -220px; /* Coloca a imagem bem no topo, ligeiramente acima do cabeçalho */
+    transform: translateX(-50%); /* Ajusta o centro exato horizontalmente */
+    z-index: 2; /* Aumenta o z-index para garantir que fique acima de todos os elementos */
+}
+
+/* Contêiner para o botão de configurações */
+.header-buttons {
+    margin-left: auto; /* Empurra o contêiner para a direita */
+}
+
+/* Botão de Configurações */
+.header-button {
+    background-color: #F2B263; /* Cor específica para o botão de configurações */
+    border: 2px solid #220126; /* Borda específica */
+    padding: 10px;
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
+    cursor: pointer; /* Teste com um cursor padrão */
+    border-radius: 8px;
+    font-family: 'VT323', monospace;
+}
+
+/* Conteúdo Principal */
+.main-content {
+    display: flex;
+    flex-direction: column; /* Organiza as seções em coluna */
+    height: 100vh; /* Ocupa a altura total da viewport */
+}
+
+/* Seção superior */
+.top-section {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    overflow: hidden; /* Esconde o overflow */
+}
+
+/* Seção inferior */
+.bottom-section {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    overflow: hidden; /* Esconde o overflow */
+}
+
+/* Títulos das Seções */
+section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Área de Chat */
+.chat-area {
+    flex: 1 1 40%;
+    background-color: rgba(250, 204, 193, 0.8); /* Mesma cor e transparência do calendário */
+    border: 4px solid #220126;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    max-width: 400px;
+    overflow-y: auto; /* Adiciona scroll vertical */
+    h2 {
+        font-size: 4rem; /* Aumenta o tamanho da fonte do h2 */
+        margin-top: 0; /* Diminui a distância do h2 da borda de cima */
+    }
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    text-align: center;
+    margin: 10px;
+}
+
+.avatar img {
+    width: 180px;
+    height: 180px;
+    border: 2px solid #220126;
+    border-radius: 50%;
+}
+
+
+/* Área de Lista de Tarefas */
+.task-area {
+    flex: 1 1 20%;
+    background-color: rgba(250, 204, 193, 0.8); /* Mesma cor e transparência do calendário */
+    border: 4px solid #220126;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    max-width: 200px;
+    height: 298px !important; /* Diminui a altura da área da lista de tarefas */
+    overflow-y: auto; /* Adiciona scroll vertical */
+    h2 {
+        font-size: 4rem; /* Aumenta o tamanho da fonte do h2 */
+        margin-top: 0; /* Diminui a distância do h2 da borda de cima */
+    }
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto; /* Adiciona scroll vertical */
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Atualizado para 10px */
+    border-bottom: 1px solid #220126; /* Atualizado para #220126 */
+    background-color: #FFFFFF; /* Fundo branco para as tarefas */
+    border: 2px solid #220126; /* Borda preta */
+    border-radius: 8px; /* Cantos arredondados */
+    margin-bottom: 10px; /* Espaço entre as tarefas */
+    word-wrap: break-word; /* Quebra de linha para texto longo */
+}
+
+.task-list li.completed {
+    background-color: #D4EDDA; /* Cor de fundo para tasks completadas */
+    text-decoration: line-through; /* Texto riscado para tasks completadas */
+}
+
+.task-list .task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-list .task-actions .edit {
+    cursor: pointer;
+    font-size: 1.8em; /* Aumenta o tamanho do ícone */
+    position: relative;
+    top: -2px; /* Ajuste este valor conforme necessário */
+}
+.task-list .task-actions .delete {
+    cursor: pointer;
+    font-size: 1.5em; /* Aumenta o tamanho do ícone */
+}
+
+/* Estilo padrão para todos os botões */
+.button, button, .button button, input[type="submit"] {
+    position: relative;
+    display: block; /* Alterado para block para centralizar */
+    width: 150px; /* Defina a largura desejada */
+    margin: 10px auto; /* Centraliza o botão horizontalmente */
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 1.2em; /* Aumentado o tamanho da fonte */
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FFA12B;
+    padding: 15px 25px; /* Aumentado o padding para tornar o botão maior */
+    cursor: pointer; /* Teste com um cursor padrão */
+    text-shadow: 0px 1px 0px #000;
+    box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all 0.1s ease;
+}
+
+/* Estilo para links dentro de botões */
+.button a, button a {
+    color: white;
+    font-family: 'VT323', monospace;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: block; /* Alterado para block para centralizar o conteúdo */
+    width: 100%;
+    height: 100%;
+    padding: 0; /* Removido o padding para evitar conflitos */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Ajustes para botões dentro de áreas específicas */
+.task-area .button,
+.modal-content .button {
+    margin: 5px auto; /* Centraliza o botão horizontalmente */
+    width: 150px; /* Botão ocupa largura padrão */
+    display: block;
+    box-sizing: border-box; /* Garantir que padding e borda sejam incluídos na largura */
+}
+
+/* Ajustes para inputs e selects */
+input, select {
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* Área de Anotações */
+.notes-area {
+    flex: 1 1 25%;
+    background-color: rgba(250, 204, 193, 0.8); /* Mesma cor e transparência do calendário */
+    border: 4px solid #220126;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    max-width: 300px;
+    overflow-y: auto; /* Adiciona scroll vertical */
+    font-size: 32px;
+}
+
+#noteInput {
+    width: 100%;
+    height: 80px;
+    border: 2px solid #220126;
+    border-radius: 4px;
+    padding: 5px;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    resize: none;
+}
+
+.save-note-button {
+    background-color: #F2B263;
+    border: 2px solid #220126;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-family: 'VT323', monospace;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    max-height: 200px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto; /* Adiciona scroll vertical */
+}
+
+.notes-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #220126;
+    background-color: #FFFFFF; /* Fundo branco para as anotações */
+    border: 2px solid #220126; /* Borda preta */
+    border-radius: 8px; /* Cantos arredondados */
+    margin-bottom: 10px; /* Espaço entre as anotações */
+    word-wrap: break-word; /* Quebra de linha para texto longo */
+    font-size: 2em; /* Aumenta o tamanho da fonte do texto */
+}
+
+.notes-list .note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.notes-list .note-actions .edit {
+    cursor: pointer;
+    font-size: 1.8em; /* Aumenta o tamanho do ícone */
+    position: relative;
+    top: -2px; /* Ajuste este valor conforme necessário */
+}
+
+.notes-list .note-actions .delete {
+    cursor: pointer;
+    font-size: 1.5em; /* Aumenta o tamanho do ícone */
+}
+
+/* Área do Calendário */
+.calendar-area {
+    flex: 1 2 40%; /* Aumenta a largura da área do calendário */
+    background-color: rgba(250, 204, 193, 0.8); /* Ajuste a transparência conforme necessário */
+    border: 4px solid #220126;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    width: 845px; /* Define a largura da área do calendário */
+    height: 498px; /* Aumenta a altura da área do calendário */
+    overflow-y: auto; /* Adiciona scroll vertical */
+    position: absolute; /* Posiciona o calendário de forma absoluta */
+    top: 460px; /* Move o calendário para cima */
+    right: 10px; /* Posiciona o calendário no canto direito */
+    left: auto; /* Garante que o calendário cresça para a esquerda */
+    z-index: 1; /* Garante que o calendário fique acima de outros elementos */
+}
+
+.calendar-area h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do seletor de mês e ano */
+.month-year {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.month-year select {
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    padding: 5px;
+    margin: 0 5px;
+    border: 2px solid #220126;
+    background-color: #EFF2D8;
+    border-radius: 4px;
+}
+
+/* Estilo do calendário */
+.calendar {
+    background-color: rgba(250, 204, 193, 0.8); /* Ajuste a transparência conforme necessário */
+    border: 4px solid #220126;
+    border-radius: 8px;
+    width: 90%; /* Ajuste a largura conforme necessário */
+    height: 90%; /* Ajuste a altura conforme necessário */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.calendar th, .calendar td {
+    width: calc(100% / 7);
+    height: 70px;
+    border: 1px solid #faccc1;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1rem;
+    color: #220126;
+    cursor: pointer;
+    position: relative;
+}
+
+.calendar th {
+    background-color: #F26D85;
+    color: #EFF2D8;
+}
+
+.calendar td {
+    background-color: #FFEFE6;
+}
+
+.calendar th:last-child, .calendar td:last-child {
+    border-right: none;
+}
+
+.calendar tr:last-child td {
+    border-bottom: none;
+}
+
+/* Coração semitransparente no calendário */
+.heart {
+    width: 100px;
+    height: 100px;
+    background-image: url('../assets/images/heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* Modais */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 1, 38, 0.8);
+}
+
+.modal-content {
+    background-color: #EFF2D8;
+    margin: 15% auto;
+    padding: 20px;
+    border: 4px solid #F26D85;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+    color: #220126;
+    box-sizing: border-box; /* Garantir que padding e bordas sejam contabilizados */
+}
+
+.close, .close-info {
+    color: #220126;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus,
+.close-info:hover,
+.close-info:focus {
+    color: #F26D85;
+}
+
+/* Inputs e Botões */
+input[type="text"], input[type="time"] {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+    margin: 10px 0;
+    border: 2px solid #F2A999;
+    background-color: #FFF5EE;
+    border-radius: 4px;
+    color: #220126;
+}
+
+.submit-btn {
+    background-color: #F2B263;
+    border: 2px solid #220126;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #220126;
+    font-family: 'VT323', monospace;
+    width: 100%; /* Botão ocupa 100% da largura */
+    box-sizing: border-box; /* Garantir que padding e borda sejam contabilizados */
+}
+
+/* Rodapé */
+.footer {
+    background-color: rgba(242, 169, 153, 0.9);
+    padding: 20px;
+    border-top: 4px solid #220126;
+    text-align: center;
+}
+
+.contacts {
+    margin-bottom: 10px;
+}
+
+.contacts a {
+    font-family: 'VT323', monospace;
+    color: #220126;
+    text-decoration: none;
+    font-size: 2.5rem !important; /* Força o tamanho da fonte */
+    margin: 0 10px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 30px !important; /* Aumenta a largura do ícone */
+    height: 30px !important; /* Aumenta a altura do ícone */
+}
+
+.rights {
+    font-family: 'VT323', monospace;
+    color: #F26D85;
+    font-size: 1.5rem !important; /* Aumenta o tamanho da fonte */
+    margin-top: 10px;
+}
+
+/* ... código existente ... */
+
+.task-list li.completed {
+    background-color: #D4EDDA; /* Cor de fundo para tasks completadas */
+    text-decoration: line-through; /* Texto riscado para tasks completadas */
+}
+
+/* ... código existente ... */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-section, .bottom-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-area, .task-area, .notes-area, .calendar-area {
+    flex: 1;
+    margin: 10px;
+}
+
+/* Ajustes adicionais para garantir que as áreas não se sobreponham */
+.chat-area, .task-area {
+    max-width: 48%;
+}
+
+.notes-area, .calendar-area {
+    max-width: 48%;
+}
+
+/* Aplicar o cursor personalizado para vários elementos */
+.header-button, 
+.button, 
+.chat-button, 
+.addTaskButton,
+.task-list,
+.task-actions,
+.edit, 
+.delete, 
+.saveNoteButton,
+.monthSelector,
+.yearSelector,
+.edit,
+.delete,
+.modal,
+.modal-content,
+edit,
+delete,
+modal,
+select, 
+a,
+thead, 
+tbody {
+    cursor: url('../assets/images/clique.png'), pointer; /* Cursor personalizado */
+}
+.task-actions .edit {
+    cursor: url('../assets/images/clique.png'), pointer;
+}
+/* Cursor personalizado para o seletor de mês e ano */
+#monthSelector,
+#yearSelector,
+/* Aplicar o cursor personalizado para os botões dentro dos modais */
+#saveEditTaskButton,
+#saveEditNoteButton,
+#closeEditTaskModal,
+#closeEditNoteModal {
+    cursor: url('../assets/images/clique.png'), pointer;
+}
+
+/* Cursor personalizado para o botão de salvar */
+#saveNoteButton {
+    cursor: url('../assets/images/clique.png'), pointer;
+}
+
+/* Aplicar o cursor personalizado para elementos dentro da área do calendário */
+.calendar-area select,  /* Seletor de mês e ano */
+.calendar-area table,   /* A tabela do calendário */
+.calendar-area th,      /* Cabeçalhos do calendário (Dom, Seg, etc.) */
+.calendar-area td,      /* Células de dias do calendário */
+#monthSelector,
+#yearSelector {
+    cursor: url('../assets/images/clique.png'), pointer;
+}
+
+/* Se ainda houver elementos que precisam de cursor personalizado */
+thead, tbody {
+    cursor: url('../assets/images/clique.png'), pointer;
+}
+

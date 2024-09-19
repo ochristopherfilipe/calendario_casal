@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados e links de estilos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Do Casal</title>
+    <!-- Fonte VT323 -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Imagem de fundo -->
+    <div class="background"></div>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <!-- Coração pixelado centralizado (logo) -->
+        <div class="logo">
+            <!-- Imagem do coração -->
+            <img src="assets/images/heart.png" alt="Logo" class="logo-image">
+        </div>
+        <!-- Contêiner para o botão de configurações -->
+        <div class="header-buttons">
+            <button class="header-button">Configurações</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal dividido em 4 áreas -->
+    <main class="main-content">
+        <div class="top-section">
+            <!-- Área de Chat (Canto Superior Esquerdo) -->
+            <section class="chat-area">
+                <h2>Chat</h2>
+                <div class="avatar-container">
+                    <!-- Avatar do Usuário 1 -->
+                    <div class="avatar">
+                        <!-- Imagem do avatar -->
+                        <img src="assets/images/avatar1.png" alt="Avatar 1">
+                        <p>Olá, Usuário 1!</p>
+                        <div class="button">
+                            <a href="#" class="chat-button">Chat Pessoal</a>
+                        </div>
+                    </div>
+                    <!-- Avatar do Usuário 2 -->
+                    <div class="avatar">
+                        <!-- Imagem do avatar -->
+                        <img src="assets/images/avatar2.png" alt="Avatar 2">
+                        <p>Olá, Usuário 2!</p>
+                        <div class="button">
+                            <a href="#" class="chat-button">Chat Pessoal</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Área de Lista de Tarefas (Canto Superior Direito) -->
+            <section class="task-area">
+                <h2>Lista de Tarefas</h2>
+                <ul class="task-list" id="taskList"></ul>
+                <!-- Botão de Adicionar Tarefa -->
+                <div class="button">
+                    <a href="#" id="addTaskButton">Adicionar Tarefa</a>
+                </div>
+            </section>
+        </div>
+
+        <div class="bottom-section">
+            <!-- Área de Anotações (Canto Inferior Esquerdo) -->
+            <div class="notes-area">
+                <h2>Anotações</h2>
+                <!-- Campo para escrever nova anotação -->
+                <textarea id="noteInput" placeholder="Escreva uma anotação..."></textarea>
+                <!-- Botão para salvar a anotação -->
+                <div class="button">
+                    <a href="#" id="saveNoteButton">Salvar</a>
+                </div>
+                <!-- Lista de anotações existentes -->
+                <ul class="notes-list">
+                    <!-- Anotações serão adicionadas dinamicamente -->
+                </ul>
+            </div>
+
+            <!-- Área do Calendário (Canto Inferior Direito) -->
+            <div class="calendar-area">
+                <!--<h1>Calendário Do Casal</h1>-->
+                <div class="month-year">
+                    <!-- Seletor de mês -->
+                    <select id="monthSelector">
+                        <option value="0">Janeiro</option>
+                        <option value="1">Fevereiro</option>
+                        <option value="2">Março</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Maio</option>
+                        <option value="5">Junho</option>
+                        <option value="6">Julho</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Setembro</option>
+                        <option value="9">Outubro</option>
+                        <option value="10">Novembro</option>
+                        <option value="11">Dezembro</option>
+                    </select>
+                    <!-- Seletor de ano -->
+                    <select id="yearSelector"></select>
+                </div>
+                <table class="calendar">
+                    <thead>
+                        <tr>
+                            <th>Dom</th>
+                            <th>Seg</th>
+                            <th>Ter</th>
+                            <th>Qua</th>
+                            <th>Qui</th>
+                            <th>Sex</th>
+                            <th>Sáb</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendarBody">
+                        <!-- O conteúdo do calendário será gerado dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé com contatos -->
+    <footer class="footer">
+        <div class="contacts">
+            <a href="https://tresdevs.com.br" target="_blank">tresdevs.com.br</a>
+            <div class="social-icons">
+                <a href="https://instagram.com/seu_usuario" target="_blank">
+                    <img src="assets/images/icons/insta.png" alt="Instagram">
+                </a>
+                <a href="mailto:seu_email@gmail.com">
+                    <img src="assets/images/icons/gmail.png" alt="Gmail">
+                </a>
+                <a href="tel:+5511999999999">
+                    <img src="assets/images/icons/telefone.png" alt="Telefone">
+                </a>
+            </div>
+        </div>
+        <p class="rights">Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modais para o Calendário -->
+    <!-- Modal para adicionar eventos -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Evento</h2>
+            <input type="text" id="eventName" placeholder="Nome do Evento">
+            <input type="time" id="eventTime">
+            <!-- Botão de Adicionar Evento -->
+            <div class="button">
+                <a href="#" id="submitEvent">Adicionar Evento</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para exibir informações do evento -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-info">&times;</span>
+            <h2>Informações do Evento</h2>
+            <p id="infoEvent"></p>
+        </div>
+    </div>
+
+    <!-- Adicione esta nova modal após a div task-area -->
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Nova Tarefa</h2>
+            <input type="text" id="newTaskInput" placeholder="Nome da tarefa">
+            <div class="button">
+                <a href="#" id="submitNewTask">Adicionar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Tarefa -->
+    <div id="editTaskModal" class="modal">
+        <div class="modal-content">
+            <span id="closeEditTaskModal" class="close">&times;</span>
+            <h2>Editar Tarefa</h2>
+            <input type="text" id="editTaskInput" maxlength="50">
+            <button id="saveEditTaskButton" class="submit-btn">Salvar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Anotação -->
+    <div id="editNoteModal" class="modal">
+        <div class="modal-content">
+            <span id="closeEditNoteModal" class="close">&times;</span>
+            <h2>Editar Anotação</h2>
+            <textarea id="editNoteInput" maxlength="255"></textarea>
+            <button id="saveEditNoteButton" class="submit-btn">Salvar</button>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
